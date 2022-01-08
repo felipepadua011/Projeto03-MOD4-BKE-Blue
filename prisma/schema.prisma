@@ -8,8 +8,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Tweet {
+  id          Int      @default(autoincrement()) @id
+  texto       String
+  emoji       String?
+  curtidas    Int
+  usuarioid   Int
+  Usuario     Usuario?  @relation(fields: [usuarioid], references: [id])
+  categorias  Categoriasemtweets[]
+  tweetfavorito  usuariosFavorito[]
+  createdAt   DateTime @default(now())
+}
+
+model Categoria {
+  id            Int                   @default(autoincrement()) @id
+  nome          String
+  tweet         Categoriasemtweets[]
+  createdAt     DateTime              @default(now()) @map("created_at")
+}
+
+model Seguidores {
+  id               Int       @default(autoincrement()) @id
+  nome             String
+  usuarioid        Int
+  Usuario          Usuario?  @relation(fields: [usuarioid], references: [id])
+  createdAt        DateTime  @default(now()) @map("created_at")
+}
+
+model Seguindo {
+  id             Int       @default(autoincrement()) @id
+  nome           String
+  usuarioid      Int
+  Usuario        Usuario?  @relation(fields: [usuarioid], references: [id])
+  createdAt        DateTime  @default(now()) @map("created_at")
+}
+
 model Usuario {
-  id            Int     @default(autoincrement()) @id
+  id            Int             @default(autoincrement()) @id
   email         String
   senha         String
   nome          String 
@@ -18,29 +53,30 @@ model Usuario {
   nascimento    String 
   seguidores    Seguidores[]
   seguindo      Seguindo[]
-  tweets        Tweet[]
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  tweet         Tweet[]
+  tweetfavorito usuariosFavorito[]
+  createdAt     DateTime        @default(now()) @map("created_at")
+  updatedAt     DateTime        @updatedAt
 }
 
-model Seguidores {
-  id              Int     @default(autoincrement()) @id
-  Usuario         Usuario?  @relation(fields: [usuarioid], references: [id])
-  usuarioid       Int
+model Categoriasemtweets {
+  tweet          Tweet?            @relation(fields: [tweetid], references: [id])
+  tweetid        Int
+  categoria      Categoria?        @relation(fields: [categoriaid], references: [id])
+  categoriaid    Int
+  createdAt      DateTime             @default(now()) @map("created_at")
+
+  @@id([tweetid, categoriaid])
+  
 }
 
-model Seguindo {
-  id            Int      @default(autoincrement()) @id
-  Usuario         Usuario?  @relation(fields: [usuarioid], references: [id])
-  usuarioid       Int
-}
+model usuariosFavorito {
+  tweetid             Int
+  tweet               Tweet?    @relation(fields: [tweetid], references: [id])
+  usuarioid           Int
+  usuario             Usuario?  @relation(fields: [usuarioid], references: [id])
+  createdAt      DateTime             @default(now()) @map("created_at")
 
-model Tweet {
-  id          Int      @default(autoincrement()) @id
-  texto       String
-  emoji       String?
-  curtidas    Int
-  createdAt   DateTime @default(now())
-  Usuario         Usuario?  @relation(fields: [usuarioid], references: [id])
-  usuarioid       Int
+  @@id([tweetid, usuarioid])
+  
 }
