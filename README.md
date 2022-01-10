@@ -88,10 +88,13 @@ Respeitando o diagrama, os alunos devem desenvolver o schema prisma para montar 
 
  Em nossos arquivos DTO é necessário que realizemos as validações por meio dos @Decorators.
 
-Para este projeto foram criadas 4 pastas distintas dentro da pasta `src` são elas:
+Para este projeto foram criadas 7 pastas distintas dentro da pasta `src` são elas:
 
+- Pasta Categoria.
+- Pasta Categoriasemtweets
 - Pasta seguidores.
 - Pasta seguindo.
+- Pasta Tweetfavorito.
 - Pasta tweets.
 - Pasta usuario 
 
