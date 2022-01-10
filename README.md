@@ -1,8 +1,6 @@
-```html
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
-```
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
@@ -147,6 +145,8 @@ Há um conjunto de decoradores para validação de dados conveniente. Se você t
 
 ​                                               `https://odi.gitbook.io/core/basics/dto`
 
+
+
 ## Prisma
 
 Para que o prisma podesse ser utilizado instalei as seguintes dependencias:
@@ -181,112 +181,105 @@ Este comando é para testar se tudo esta certo e funcionando corretamente no pri
 npx prisma studio
 ```
 
+
+
 ## Rotas
 
-**Temos 4 rotas principais:**
+**Temos 7 rotas principais:**
 
-<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+<img src="httpsAA://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
 
-<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="post-usuario" style="zoom:60%;" />
+<img src="httpsAA://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="post-usuario" style="zoom:60%;" />
 
 <img src="https://cdn.discordapp.com/attachments/895482892627607602/927026552737259570/seguidores.png" alt="post-usuario" style="zoom:60%;" />
 
 <img src="https://cdn.discordapp.com/attachments/895482892627607602/927026553240571935/seguindo.png" alt="post-usuario" style="zoom:60%;" />
+
+<img src="httpsAA://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="post-usuario" style="zoom:60%;" />
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+
+
 
 **Dentro de cada rota temos um CRUD completo criado com os Decorators:**
 
  `@POst()` 	**Cada uma das rotas principais tem o seu:**
 
 ```javascript
- @Post()
+  @Post()
+  @UseGuards(AuthGuard('jwt'))
+  create(@Body() createCategoriaDto: CreateCategoriaDto) {
+    return this.categoriaService.createPrisma(createCategoriaDto);
+  }  
+```
+
+```javascript
+  @Post()
+  @UseGuards(AuthGuard('jwt'))
+  create(@Body() createCategoriasemtweetDto: CreateCategoriasemtweetDto) {
+    return this.categoriasemtweetsService.createPrisma(createCategoriasemtweetDto);
+  }
+```
+
+```javascript
+@Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createSeguidoreDto: CreateSeguidoreDto) {
     return this.seguidoresService.createPrisma(createSeguidoreDto);
-  }
+  }  
 ```
 
 ```javascript
 @Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createSeguindoDto: CreateSeguindoDto) {
     return this.seguindoService.createPrisma(createSeguindoDto);
-  }
+  }  
+```
 
+```javascript
+  @Post()
+  @UseGuards(AuthGuard('jwt'))
+  create(@Body() createTweetfavoritoDto: CreateTweetfavoritoDto) {
+    return this.tweetfavoritoService.createPrisma(createTweetfavoritoDto);
+  }
 ```
 
 ```javascript
 @Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createTweetDto: CreateTweetDto) {
     return this.tweetsService.createPrisma(createTweetDto);
   }
 ```
 
 ```javascript
- @Post()
+  @Post()
+  @UseGuards(AuthGuard('jwt'))
   create(@Body() createUsuarioDto: CreateUsuarioDto) {
     return this.usuariosService.create(createUsuarioDto);
   }
 ```
 
- `@Patch(':id') ` 	**Cada uma das rotas principais tem o seu:**
 
-```javascript
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSeguidoreDto: UpdateSeguidoreDto) {
-    return this.seguidoresService.updatePrisma(+id, updateSeguidoreDto);
-  }
-```
-
-```javascript
-@Patch(':id')
-  update(@Param('id') id: string, @Body() updateSeguindoDto: UpdateSeguindoDto) {
-    return this.seguindoService.updatePrisma(+id, updateSeguindoDto);
-  }
-```
-
-```javascript
-@Patch(':id')
-  update(@Param('id') id: string, @Body() updateTweetDto: UpdateTweetDto) {
-    return this.tweetsService.updatePrisma(+id, updateTweetDto);
-  }
-```
-
-```javascript
-@Patch(':id')
-  update(@Param('id') id: string, @Body() updateFilmeDto: UpdateUsuarioDto) {
-    return this.usuariosService.updatePrisma(+id, updateFilmeDto);
-  }
-```
-
-`@Delete`()  	**cada rota principal tem o seu:**
-
-```javascript
-@Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.seguidoresService.removePrisma(+id);
-  }
-```
-
-```javascript
-@Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.seguindoService.removePrisma(+id);
-  }
-```
-
-```javascript
-@Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tweetsService.removePrisma(+id);
-  }
-```
-
-```javascript
-@Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usuariosService.removePrisma(+id);
-  }
-```
 
 `@Get `() 	  ***cada rota principal tem o seu:***
+
+```javascript
+  @Get()
+  findAll() {
+    return this.categoriaService.findAllPrisma();
+  }
+```
+
+```javascript
+  @Get()
+  findAll() {
+    return this.categoriasemtweetsService.findAllPrisma();
+  }
+```
 
 ```javascript
 @Get()
@@ -299,6 +292,13 @@ npx prisma studio
  @Get()
   findAll() {
     return this.seguindoService.findAllPrisma();
+  }
+```
+
+```javascript
+  @Get()
+  findAll() {
+    return this.tweetfavoritoService.findAllPrisma();
   }
 ```
 
@@ -316,7 +316,23 @@ npx prisma studio
   }
 ```
 
+
+
 `@Get(':id')`  ***cada rota principal tem o seu:***
+
+```javascript
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.categoriaService.findOnePrisma(+id);
+  }
+```
+
+```javascript
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.categoriasemtweetsService.findOnePrisma(+id);
+  }
+```
 
 ```javascript
 @Get(':id')
@@ -333,6 +349,13 @@ npx prisma studio
 ```
 
 ```javascript
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.tweetfavoritoService.findOnePrisma(+id);
+  }
+```
+
+```javascript
  @Get(':id')
   findOne(@Param('id') id: string) {
     return this.tweetsService.findOnePrisma(+id);
@@ -345,6 +368,114 @@ npx prisma studio
     return this.usuariosService.findOnePrisma(+id);
   }
 ```
+
+
+
+`@Patch(':id') ` 	**Cada uma das rotas principais tem o seu:**
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCategoriaDto: UpdateCategoriaDto) {
+    return this.categoriaService.updatePrisma(+id, updateCategoriaDto);
+  }
+```
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateCategoriasemtweetDto: UpdateCategoriasemtweetDto) {
+    return this.categoriasemtweetsService.updatePrisma(+id, updateCategoriasemtweetDto);
+  }
+```
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateSeguidoreDto: UpdateSeguidoreDto) {
+    return this.seguidoresService.updatePrisma(+id, updateSeguidoreDto);
+  }
+```
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateSeguindoDto: UpdateSeguindoDto) {
+    return this.seguindoService.updatePrisma(+id, updateSeguindoDto);
+  }
+```
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateTweetfavoritoDto: UpdateTweetfavoritoDto) {
+    return this.tweetfavoritoService.updatePrisma(+id, updateTweetfavoritoDto);
+  }
+```
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateTweetDto: UpdateTweetDto) {
+    return this.tweetsService.updatePrisma(+id, updateTweetDto);
+  }
+```
+
+```javascript
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() updateFilmeDto: UpdateUsuarioDto) {
+    return this.usuariosService.updatePrisma(+id, updateFilmeDto);
+  }
+```
+
+
+
+`@Delete`()  	**cada rota principal tem o seu:**
+
+```javascript
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.categoriaService.removePrisma(+id);
+  }
+```
+
+```javascript
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.categoriasemtweetsService.removePrisma(+id);
+  }
+```
+
+```javascript
+@Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.seguidoresService.removePrisma(+id);
+  }
+```
+
+```javascript
+@Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.seguindoService.removePrisma(+id);
+  }
+```
+
+```javascript
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tweetfavoritoService.removePrisma(+id);
+  }
+```
+
+```javascript
+@Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.tweetsService.removePrisma(+id);
+  }
+```
+
+```javascript
+@Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.usuariosService.removePrisma(+id);
+  }
+```
+
+
 
 **Post  rota** `/usuarios` , **no Thunder:**	
 
