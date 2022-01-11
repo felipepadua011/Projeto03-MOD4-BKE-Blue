@@ -27,15 +27,4 @@ export class CreateUsuarioDto {
   @IsString()
   nascimento: string;
 
-  @IsNotEmpty()
-  @IsInt()
-  seguidores: number;
-
-  @IsNotEmpty()
-  @IsInt()
-  seguindo: number;
-
-  @IsNotEmpty()
-  @IsInt()
-  tweets: number;
 }
