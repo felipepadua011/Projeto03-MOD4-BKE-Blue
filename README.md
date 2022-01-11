@@ -482,7 +482,7 @@ npx prisma studio
 
 **Post  rota** `/usuarios` , **no Thunder:**	
 
-<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />		 
+<img src="https://media.discordapp.net/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
 
 - ​	**Usado para adicionar um usuario no banco de dados local.**
 - ​    **Para adicionar um usuario dentro do banco, necessita passar todos os dados com suas devidas informações a seguir no exemplo:( id, createdAt e updatedAt não precisa passar, pois são autoincrement )**
