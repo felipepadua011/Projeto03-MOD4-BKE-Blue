@@ -537,6 +537,40 @@ npx prisma studio
 
 * **Todos os `id` são autoincrement (criado sozinho, não precisa passar)**
 
+**Post  rota** `/tweetsfavorito` , **no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428544679997/tweetfavorito-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve apenas para fazer o post das tabelas many to many. de tweetid e usuarioid, exemplo: **
+
+```javascript
+"tweetid": 1 ,           //Number
+"usuarioid": 2            //Number
+```
+
+**Post  rota** `/categoriasemtweets , **no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428339171328/categoriasemtweets-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve apenas para fazer o post das tabelas many to many. de tweetid e categoriaid, exemplo:** 
+
+```javascript
+"tweetid": 1 ,           //Number
+"categoriaid": 3           //Number
+```
+
+**Post  rota** `/categoria,  ** no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930261805568249856/categoria-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve para criar o post de categorias para os tweets, exemplo:** 
+
+```javascript
+"nome": "Comida"           //String
+```
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428137852928/categoria-detal.png" alt="tweets" style="zoom:60%;" />
+
 
 
 **Post  rota** `/tweetsfavorito` , **no  Thunder:**
