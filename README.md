@@ -190,15 +190,15 @@ npx prisma studio
 
 **Temos 7 rotas principais:**
 
-<img src="httpsAA://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930261805568249856/categoria-url.png" alt="post-usuario" style="zoom:60%;" />
 
-<img src="httpsAA://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="post-usuario" style="zoom:60%;" />
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428339171328/categoriasemtweets-url.png" alt="post-usuario" style="zoom:60%;" />
 
 <img src="https://cdn.discordapp.com/attachments/895482892627607602/927026552737259570/seguidores.png" alt="post-usuario" style="zoom:60%;" />
 
 <img src="https://cdn.discordapp.com/attachments/895482892627607602/927026553240571935/seguindo.png" alt="post-usuario" style="zoom:60%;" />
 
-<img src="httpsAA://cdn.discordapp.com/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428544679997/tweetfavorito-url.png" alt="post-usuario" style="zoom:60%;" />
 
 <img src="https://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="post-usuario" style="zoom:60%;" />
 
