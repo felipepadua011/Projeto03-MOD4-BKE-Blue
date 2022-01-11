@@ -480,23 +480,75 @@ npx prisma studio
 
 
 
-**Post  rota** `/usuarios` , **no Thunder:**	
+**Post  rota** `/categoria,  ** no  Thunder:**
 
-<img src="https://media.discordapp.net/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930261805568249856/categoria-url.png" alt="tweets" style="zoom:60%;" />			 
 
-- ​	**Usado para adicionar um usuario no banco de dados local.**
-- ​    **Para adicionar um usuario dentro do banco, necessita passar todos os dados com suas devidas informações a seguir no exemplo:( id, createdAt e updatedAt não precisa passar, pois são autoincrement )**
+- ​	**Esta rota serve para criar o post de categorias para os tweets, exemplo:** 
 
 ```javascript
-  "email":         //String
-  "senha":         //String
-  "nome":          //String 
-  "imagem":        //String?
-  "bio":           //String 
-  "nascimento":    //String 
+"nome": "Comida"           //String
 ```
 
-<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551105650718/postthamy.png" alt="post-usuario" style="zoom:60%;" />
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428137852928/categoria-detal.png" alt="tweets" style="zoom:60%;" />
+
+
+
+**Post  rota** `/categoriasemtweets , **no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428339171328/categoriasemtweets-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve apenas para fazer o post das tabelas many to many. de tweetid e categoriaid, exemplo:** 
+
+```javascript
+"tweetid": 1 ,           //Number
+"categoriaid": 3           //Number
+```
+
+
+
+**Post  rota** `/seguidores` , **no Thunder:**
+
+![seguidores](https://cdn.discordapp.com/attachments/895482892627607602/927026552737259570/seguidores.png)		 
+
+- ​	**Usado para adicionar um seguidor ao usuario ja existente no banco.**
+- ​    **Para adicionar um seguidor, necessita passar o ID do usuario ja existente exemplo:**
+
+```javascript
+ "usuarioid": 3           //Number
+```
+
+![seguidoresp](https://cdn.discordapp.com/attachments/895482892627607602/927026553035046913/seguidoresp.png)
+
+
+
+**Post  rota** `/seguindo` , **no Thunder:**	
+
+![seguindo](https://cdn.discordapp.com/attachments/895482892627607602/927026553240571935/seguindo.png)		 
+
+- ​	**Usado para informar quem o usuario esta seguindo** 
+- ​    **Para adicionar quem o usuario esta seguindo, necessita passar o ID do usuario ja existente, exemplo:**
+
+```javascript
+ "usuarioid": 3           //Number
+```
+
+![seguindop](https://cdn.discordapp.com/attachments/895482892627607602/927026553462874132/seguindop.png)
+
+* **Todos os `id` são autoincrement (criado sozinho, não precisa passar)**
+
+
+
+**Post  rota** `/tweetsfavorito` , **no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428544679997/tweetfavorito-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve apenas para fazer o post das tabelas many to many. de tweetid e usuarioid, exemplo: **
+
+```javascript
+"tweetid": 1 ,           //Number
+"usuarioid": 2            //Number
+```
 
 
 
@@ -516,33 +568,25 @@ npx prisma studio
 
 ![tweetsp](https://cdn.discordapp.com/attachments/895482892627607602/927026554939265074/tweetsp.png)
 
-**Post  rota** `/seguidores` , **no Thunder:**
 
-![seguidores](https://cdn.discordapp.com/attachments/895482892627607602/927026552737259570/seguidores.png)		 
 
-- ​	**Usado para adicionar um seguidor ao usuario ja existente no banco.**
-- ​    **Para adicionar um seguidor, necessita passar o ID do usuario ja existente exemplo:**
+**Post  rota** `/usuarios` , **no Thunder:**	
 
-```javascript
- "usuarioid": 3,           //Number
-```
+<img src="https://media.discordapp.net/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
 
-![seguidoresp](https://cdn.discordapp.com/attachments/895482892627607602/927026553035046913/seguidoresp.png)
-
-**Post  rota** `/seguindo` , **no Thunder:**	
-
-![seguindo](https://cdn.discordapp.com/attachments/895482892627607602/927026553240571935/seguindo.png)		 
-
-- ​	**Usado para informar quem o usuario esta seguindo** 
-- ​    **Para adicionar quem o usuario esta seguindo, necessita passar o ID do usuario ja existente, exemplo:**
+- ​	**Usado para adicionar um usuario no banco de dados local.**
+- ​    **Para adicionar um usuario dentro do banco, necessita passar todos os dados com suas devidas informações a seguir no exemplo:( id, createdAt e updatedAt não precisa passar, pois são autoincrement )**
 
 ```javascript
- "usuarioid": 3,           //Number
+  "email":         //String
+  "senha":         //String
+  "nome":          //String 
+  "imagem":        //String?
+  "bio":           //String 
+  "nascimento":    //String 
 ```
 
-![seguindop](https://cdn.discordapp.com/attachments/895482892627607602/927026553462874132/seguindop.png)
-
-* **Todos os `id` são autoincrement (criado sozinho, não precisa passar)**
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551105650718/postthamy.png" alt="post-usuario" style="zoom:60%;" />
 
 
 
