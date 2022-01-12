@@ -35,11 +35,13 @@ export class UsuariosController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(@Param('id') id: string, @Body() updateFilmeDto: UpdateUsuarioDto) {
     return this.usuariosService.updatePrisma(+id, updateFilmeDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.usuariosService.removePrisma(+id);
   }

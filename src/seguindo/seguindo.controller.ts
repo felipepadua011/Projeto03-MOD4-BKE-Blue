@@ -27,11 +27,13 @@ export class SeguindoController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(@Param('id') id: string, @Body() updateSeguindoDto: UpdateSeguindoDto) {
     return this.seguindoService.updatePrisma(+id, updateSeguindoDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.seguindoService.removePrisma(+id);
   }

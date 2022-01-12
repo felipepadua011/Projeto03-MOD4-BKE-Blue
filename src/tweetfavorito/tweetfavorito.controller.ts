@@ -26,11 +26,13 @@ export class TweetfavoritoController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(@Param('id') id: string, @Body() updateTweetfavoritoDto: UpdateTweetfavoritoDto) {
     return this.tweetfavoritoService.updatePrisma(+id, updateTweetfavoritoDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.tweetfavoritoService.removePrisma(+id);
   }

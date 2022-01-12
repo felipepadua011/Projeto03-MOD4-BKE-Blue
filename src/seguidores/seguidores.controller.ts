@@ -26,11 +26,13 @@ export class SeguidoresController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(@Param('id') id: string, @Body() updateSeguidoreDto: UpdateSeguidoreDto) {
     return this.seguidoresService.updatePrisma(+id, updateSeguidoreDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.seguidoresService.removePrisma(+id);
   }

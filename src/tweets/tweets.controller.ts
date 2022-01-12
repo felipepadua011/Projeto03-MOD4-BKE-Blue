@@ -26,11 +26,13 @@ export class TweetsController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(@Param('id') id: string, @Body() updateTweetDto: UpdateTweetDto) {
     return this.tweetsService.updatePrisma(+id, updateTweetDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.tweetsService.removePrisma(+id);
   }

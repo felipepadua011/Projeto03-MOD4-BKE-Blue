@@ -26,11 +26,13 @@ export class CategoriasemtweetsController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'))
   update(@Param('id') id: string, @Body() updateCategoriasemtweetDto: UpdateCategoriasemtweetDto) {
     return this.categoriasemtweetsService.updatePrisma(+id, updateCategoriasemtweetDto);
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'))
   remove(@Param('id') id: string) {
     return this.categoriasemtweetsService.removePrisma(+id);
   }
