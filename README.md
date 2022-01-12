@@ -480,41 +480,32 @@ npx prisma studio
 
 
 
-**Post  rota** `/usuarios` , **no Thunder:**	
+**Post  rota** `/categoria,  ** no  Thunder:**
 
-<img src="https://media.discordapp.net/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930261805568249856/categoria-url.png" alt="tweets" style="zoom:60%;" />			 
 
-- ​	**Usado para adicionar um usuario no banco de dados local.**
-- ​    **Para adicionar um usuario dentro do banco, necessita passar todos os dados com suas devidas informações a seguir no exemplo:( id, createdAt e updatedAt não precisa passar, pois são autoincrement )**
-
-```javascript
-  "email":         //String
-  "senha":         //String
-  "nome":          //String 
-  "imagem":        //String?
-  "bio":           //String 
-  "nascimento":    //String 
-```
-
-<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551105650718/postthamy.png" alt="post-usuario" style="zoom:60%;" />
-
-
-
-**Post  rota** `/tweets` , **no Thunder:**
-
-<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="tweets" style="zoom:60%;" />			 
-
-- ​	**Usado para postar uma mensagem.**
-- ​    **Para adicionar um tweets, necessita passar todos os dados com suas devidas informações a seguir no exemplo:**
+- ​	**Esta rota serve para criar o post de categorias para os tweets, exemplo:** 
 
 ```javascript
-  "texto":         //String
-  "emoji":         //String? 
-  "curtidas":      //Number
-  "usuarioid":     //Number 
+"nome": "Comida"           //String
 ```
 
-![tweetsp](https://cdn.discordapp.com/attachments/895482892627607602/927026554939265074/tweetsp.png)
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428137852928/categoria-detal.png" alt="tweets" style="zoom:60%;" />
+
+
+
+**Post  rota** `/categoriasemtweets , **no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428339171328/categoriasemtweets-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve apenas para fazer o post das tabelas many to many. de tweetid e categoriaid, exemplo:** 
+
+```javascript
+"tweetid": 1 ,           //Number
+"categoriaid": 3           //Number
+```
+
+
 
 **Post  rota** `/seguidores` , **no Thunder:**
 
@@ -528,6 +519,8 @@ npx prisma studio
 ```
 
 ![seguidoresp](https://cdn.discordapp.com/attachments/895482892627607602/927026553035046913/seguidoresp.png)
+
+
 
 **Post  rota** `/seguindo` , **no Thunder:**	
 
@@ -577,6 +570,57 @@ npx prisma studio
 ```
 
 <img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428137852928/categoria-detal.png" alt="tweets" style="zoom:60%;" />
+
+
+
+**Post  rota** `/tweetsfavorito` , **no  Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/930260428544679997/tweetfavorito-url.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Esta rota serve apenas para fazer o post das tabelas many to many. de tweetid e usuarioid, exemplo: **
+
+```javascript
+"tweetid": 1 ,           //Number
+"usuarioid": 2            //Number
+```
+
+
+
+**Post  rota** `/tweets` , **no Thunder:**
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026554746314822/tweets.png" alt="tweets" style="zoom:60%;" />			 
+
+- ​	**Usado para postar uma mensagem.**
+- ​    **Para adicionar um tweets, necessita passar todos os dados com suas devidas informações a seguir no exemplo:**
+
+```javascript
+  "texto":         //String
+  "emoji":         //String? 
+  "curtidas":      //Number
+  "usuarioid":     //Number 
+```
+
+![tweetsp](https://cdn.discordapp.com/attachments/895482892627607602/927026554939265074/tweetsp.png)
+
+
+
+**Post  rota** `/usuarios` , **no Thunder:**	
+
+<img src="https://media.discordapp.net/attachments/895482892627607602/927026551491547166/post-usuario.png" alt="post-usuario" style="zoom:60%;" />
+
+- ​	**Usado para adicionar um usuario no banco de dados local.**
+- ​    **Para adicionar um usuario dentro do banco, necessita passar todos os dados com suas devidas informações a seguir no exemplo:( id, createdAt e updatedAt não precisa passar, pois são autoincrement )**
+
+```javascript
+  "email":         //String
+  "senha":         //String
+  "nome":          //String 
+  "imagem":        //String?
+  "bio":           //String 
+  "nascimento":    //String 
+```
+
+<img src="https://cdn.discordapp.com/attachments/895482892627607602/927026551105650718/postthamy.png" alt="post-usuario" style="zoom:60%;" />
 
 
 
